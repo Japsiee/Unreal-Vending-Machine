@@ -35,4 +35,19 @@
 			
 		}
 
+		// OWNER VIEW
+
+		public function ownerloginview($username, $password) {
+			$ownerverify = $this->ownerloginmodel($username, $password);
+
+			if (!$ownerverify) {
+				echo 'wrong admin username or password';
+			} else {
+				$_SESSION['ownerid'] = $ownerverify[0];
+				$_SESSION['ownerusername'] = $ownerverify[1];
+				$_SESSION['collectedcoins'] = $ownerverify[2];
+				header('location: owner.php');
+			}
+		}
+
 	}

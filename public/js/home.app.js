@@ -1,4 +1,3 @@
-
 const optionBtn = () => {
 	const navlist = document.querySelector(".navlist");
 	const navlistBtn = document.querySelector(".navlistbtn");

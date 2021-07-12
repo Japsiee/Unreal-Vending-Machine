@@ -61,15 +61,36 @@
 						$stmt = $this->connect()->prepare($qry3);
 						$stmt->execute([$id, 0,0,0]);
 					}
-					
 					return true;
 				}
-
-
-
 			}
-
-
 		}
 
+		// OWNER MODEL
+
+		protected function ownerloginmodel($username, $password) {
+			$qry = "SELECT * FROM owners";
+			$stmt = $this->connect()->query($qry);
+			$data = $stmt->fetchAll();
+			for ($i = 0; $i < count($data); $i++) {
+				if ($data[$i]->username != $username) {
+					if ($i === count($data)) {
+						if ($data[$i]->username != $username) {
+							return false;
+						}
+					} else {
+						continue;
+					}
+				} else {
+					if ($password != $data[$i]->password) {
+						return false;
+					} else {
+						$qry2 = "SELECT collected_coins FROM products";
+						$stmt = $this->connect()->query($qry2);
+						$get = $stmt->fetch();
+						return [$data[$i]->id, $data[$i]->username, $get->collected_coins];
+					}
+				}
+			}
+		}
 	}
