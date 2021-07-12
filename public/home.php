@@ -129,7 +129,7 @@ if (isset($_POST['buysoda'])) {
 			<div class="item">
 				<span class='quantity'><i class="fas fa-layer-group"></i> : <?php echo $cokeqty; ?></span>
 				<span class='price'><i class="fab fa-bitcoin"></i> : 25</span>
-				Coke
+				<img src="img/coke.svg" alt="coke" class='drinks'>
 				<button type="button" class='itemBuyBtn'>Buy</button>
 				<div class="blocker">
 					<div class="question">
@@ -147,7 +147,7 @@ if (isset($_POST['buysoda'])) {
 			<div class="item">
 				<span class='quantity'><i class="fas fa-layer-group"></i> : <?php echo $pepsiqty; ?></span>
 				<span class='price'><i class="fab fa-bitcoin"></i> : 35</span>
-				Pepsi
+				<img src="img/pepsi.svg" alt="pepsi" class='drinks'>
 				<button type="button" class='itemBuyBtn'>Buy</button>
 				<div class="blocker">
 					<div class="question">
@@ -165,7 +165,7 @@ if (isset($_POST['buysoda'])) {
 			<div class="item">
 				<span class='quantity'><i class="fas fa-layer-group"></i> : <?php echo $sodaqty; ?></span>
 				<span class='price'><i class="fab fa-bitcoin"></i> : 45</span>
-				Soda
+				<img src="img/soda.svg" alt="soda" class='drinks'>
 				<button type="button" class='itemBuyBtn'>Buy</button>
 				<div class="blocker">
 					<div class="question">
@@ -184,9 +184,11 @@ if (isset($_POST['buysoda'])) {
 
 		<div class="inventory">
 			<h2>Inventory</h2>
-			<p>Coke: <?php echo $coke; ?></p>
-			<p>Pepsi: <?php echo $pepsi; ?></p>
-			<p>Soda: <?php echo $soda; ?></p>
+			<div>
+				<p>Coke: <span><?php echo $coke; ?></span></p>
+				<p>Pepsi: <span><?php echo $pepsi; ?></span></p>
+				<p>Soda: <span><?php echo $soda; ?></span></p>
+			</div>
 		</div>
 
 	</div>

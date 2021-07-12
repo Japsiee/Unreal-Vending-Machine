@@ -41,21 +41,20 @@
 					break;
 			}
 
-			// - END - switch case for parameter item 
-
 			// - START - Instruction for inserting and updating database 
 
-			$qry2 = "UPDATE products SET " . $product . " = ?";
+			$qry1 = "SELECT collected_coins FROM products";
+			$stmt = $this->connect()->query($qry1);
+			$vendCoin = $stmt->fetch();
+
+			$qry2 = "UPDATE products SET " . $product . " = ?, collected_coins = ?";
 			$qry3 = "UPDATE users SET coins = ? WHERE id = ?";
 			$qry4 = "UPDATE inventory SET " . $product . " = ? WHERE id = ?";
-
-			// - END - Instruction for inserting and updating database 
 
 			// - START - computation of how much coins would be left after purchasing the item
 
 			$totalCoinsLeft = $coins - $price;
-
-			// - END - computation of how much coins would be left after purchasing the item
+			$totalVendCoin = $vendCoin->collected_coins + $price;
 
 			// - START - variable totalCoinsLeft is the predicted left amount after purchasing the item so if
 			// the totalCoinsLeft variable value is negative - means users money is insufficient to afford the item
@@ -68,8 +67,7 @@
 				} else {
 					// - START - updates the quantity of specific item in vending machine database after someone purchase 
 					$stmt = $this->connect()->prepare($qry2);
-					$stmt->execute([$qty - 1]);
-					// - END - updates the quantity of specific item in vending machine database after someone purchase 
+					$stmt->execute([$qty - 1, $totalVendCoin]);
 					if (!$stmt) {
 						echo 'Have an error querying query 2';
 					} else {
@@ -77,14 +75,12 @@
 						// - START - updates the users coin by the totalleftcoin 
 						$stmt = $this->connect()->prepare($qry3);
 						$stmt->execute([$totalCoinsLeft, $id]);
-						// - END - updates the users coin by the totalleftcoin
 						if (!$stmt) {
 							echo 'Have an error querying query 3';
 						} else {
 							// - START - return the item to the users inventory
 							$stmt = $this->connect()->prepare($qry4);
 							$stmt->execute([$currentQuantity + 1, $id]);
-							// - END - return the item to the users inventory
 							if (!$stmt) {
 								echo 'Have an error querying query 4';
 							} else {

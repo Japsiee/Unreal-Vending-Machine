@@ -12,14 +12,14 @@ const optionBtn = () => {
 
 const buyingOption = () => {
 	const btns = document.querySelectorAll(".itemBuyBtn");
-	const blocker = document.querySelector(".blocker");
+	const blocker = document.querySelectorAll(".blocker");
 	const cancelBtn = document.querySelectorAll(".cancel");
 	const body = document.querySelector("body");
 	
 	Array.from(btns).forEach(btn => {
 		btn.addEventListener('click', e => {
 			const parentElem = e.target.parentElement;
-			parentElem.children[3].classList.toggle("blockertoggle");
+			parentElem.children[4].classList.add('class', 'blockertoggle');
 		})
 	})
 
