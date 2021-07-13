@@ -59,21 +59,21 @@ if (isset($_POST['buycoke'])) {
 	$itemName = $_POST['itemCoke'];
 	$buyCoke = new ProductController();
 	$buyCoke->buyItem($id, $coins, $itemName);
-	header("location: home.php");
+	header('location: home.php');
 }
 
 if (isset($_POST['buypepsi'])) {
 	$itemName = $_POST['itemPepsi'];
 	$buyPepsi = new ProductController();
 	$buyPepsi->buyItem($id, $coins, $itemName);
-	header("location: home.php");
+	header('location: home.php');
 }
 
 if (isset($_POST['buysoda'])) {
 	$itemName = $_POST['itemSoda'];
 	$buySoda = new ProductController();
 	$buySoda->buyItem($id, $coins, $itemName);
-	header("location: home.php");
+	header('location: home.php');
 }
 
 // VARIABLES
@@ -192,6 +192,6 @@ if (isset($_POST['buysoda'])) {
 		</div>
 
 	</div>
-<script src='js/home.app.js' type='text/javascript' charset='utf-8' async defer></script>
+<script src='js/home.app2.js' type='text/javascript' charset='utf-8' async defer></script>
 </body>
 </html>

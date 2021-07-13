@@ -84,7 +84,7 @@
 							if (!$stmt) {
 								echo 'Have an error querying query 4';
 							} else {
-								echo 'Query Successful';
+								echo "<h2 style='text-align: center; padding: 10px;'>Successfully bought the item</h2>";
 							}
 						}
 					}

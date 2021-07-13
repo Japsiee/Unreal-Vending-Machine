@@ -8,9 +8,7 @@
 			if (!$stmt) {
 				echo 'failed to add stocks';
 			} else {
-				echo 'coke successfully refilled : ' . $stmt[0] . '<br>';
-				echo 'pepsi successfully refilled : ' . $stmt[1] . '<br>';
-				echo 'soda successfully refilled : ' . $stmt[2] . '<br>';
+				header('location: owner.php');
 			}
 		}
 	}

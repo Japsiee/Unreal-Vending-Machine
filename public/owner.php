@@ -86,6 +86,6 @@ if (isset($_POST['addstocksbtn'])) {
 			</div>
 		</div>
 	</div>
-<script src='js/owner.app.js' type='text/javascript' charset='utf-8' async defer></script>
+<script src='js/owner.app3.js' type='text/javascript' charset='utf-8' async defer></script>
 </body>
 </html>
