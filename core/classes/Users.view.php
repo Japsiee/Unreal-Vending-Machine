@@ -10,7 +10,7 @@
 			$loginverify = $this->userloginmodel($username, $password);
 
 			if (!$loginverify) {
-				echo 'User doesnt exist';
+				echo "<h2 style='text-align:center; margin-top: 40px;'>User doesnt exist</h2>";
 			} else {
 				$_SESSION['id'] = $loginverify[0];
 				$_SESSION['username'] = $loginverify[1];
@@ -28,9 +28,9 @@
 			$signupverify = $this->usersignupmodel($firstname, $lastname, $username, $password);
 
 			if (!$signupverify) {
-				echo 'Username is already taken';
+				echo "<h2 style='text-align:center; margin-top: 40px;'>Username already is taken</h2>";
 			} else {
-				echo 'signup successfully';
+				echo "<h2 style='text-align:center; margin-top: 40px;'>Signup Successfully</h2>";
 			}
 			
 		}
@@ -41,7 +41,7 @@
 			$ownerverify = $this->ownerloginmodel($username, $password);
 
 			if (!$ownerverify) {
-				echo 'wrong admin username or password';
+				echo "<h2 style='text-align:center; margin-top: 40px;'>Wrong admin username or password</h2>";
 			} else {
 				$_SESSION['ownerid'] = $ownerverify[0];
 				$_SESSION['ownerusername'] = $ownerverify[1];

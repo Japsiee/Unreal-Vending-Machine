@@ -10,7 +10,11 @@ if (isset($_POST['loginbtn'])) {
 	$username = trim($_POST['username']);
 	$password = trim($_POST['password']);
 	$userlogin = new UsersView();
-	$userlogin->userloginview($username, $password);
+	if (empty($username) || empty($password)) {
+		echo "<h2 style='text-align:center; margin-top: 40px;'>Empty Field Detected</h2>";
+	} else {
+		$userlogin->userloginview($username, $password);
+	}
 }
 
 if (isset($_POST['signupbtn'])) {
@@ -18,8 +22,12 @@ if (isset($_POST['signupbtn'])) {
 	$lastname = $_POST['lastname'];
 	$username = trim($_POST['username']);
 	$password = trim($_POST['password']);
-	$usersignup = new UsersView();
-	$usersignup->usersignupview($firstname, $lastname, $username, $password);
+	if (empty($firstname) || empty($lastname) || empty($username) || empty($password)) {
+		echo "<h2 style='text-align:center; margin-top: 40px;'>Empty Field Detected</h2>";
+	} else {
+		$usersignup = new UsersView();
+		$usersignup->usersignupview($firstname, $lastname, $username, $password);
+	}
 }
 
 if (isset($_POST['adminbtn'])) {
